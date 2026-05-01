@@ -57,6 +57,7 @@ export default function StreamPage() {
 
             {/* 🎥 THEATER PLAYER AREA */}
             <section className="w-full pt-16 md:pt-20 bg-[#0a0a0a] flex flex-col items-center">
+                {type === CONTENT_TYPES.MOVIE ? (
                 <div className="w-full max-w-[1400px] px-0 md:px-10 lg:px-20">
                     <div className="relative aspect-video w-full bg-black shadow-2xl overflow-hidden rounded-sm">
                         <MediaPlayer
@@ -70,6 +71,12 @@ export default function StreamPage() {
                         </MediaPlayer>
                     </div>
                 </div>
+                ) : (
+                    <iframe
+                        src={data.preview}
+                        className="w-full h-[80vh] bg-white"
+                    />
+                )}
                 {/* Subtle spacer below video */}
                 <div className="h-6 w-full" />
             </section>
